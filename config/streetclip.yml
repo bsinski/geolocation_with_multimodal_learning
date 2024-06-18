@@ -1,0 +1,16 @@
+includes:
+  - ./base_config.yml
+
+model_params:
+  arch: resnet50
+  setting: streetclip
+  name: ${model_params.arch}_${model_params.setting}
+  optim:
+    params:
+      attention_lr: 1e-3
+      lr: 1e-2
+      momentum: 0.9
+      weight_decay: 1e-4
+  # Attention over Guidebook
+  attn_image_size: 768
+  image_features_file: ${data_dir}/dataset/features/streetclip_merged.pkl
